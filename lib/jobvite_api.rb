@@ -1,5 +1,2 @@
-require "jobvite_api/version"
-
-module JobviteApi
-  # Your code goes here...
-end
+require 'jobvite_api/version'
+require 'jobvite_api/configuration'

@@ -5,6 +5,6 @@ group :development do
 end
 
 group :test do
-  gem 'coveralls', :require => false
+  gem 'coveralls', require: false
 end
 gemspec
