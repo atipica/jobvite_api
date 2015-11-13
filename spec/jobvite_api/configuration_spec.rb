@@ -3,9 +3,11 @@ require 'spec_helper'
 describe JobviteApi::Configuration do
   after { restore_default_config }
 
-  context 'when no symbolize_keys is specified' do
+  context 'when given a false symbolize_keys value' do
     before do
-      restore_default_config
+      JobviteApi.configure do |config|
+        config.symbolize_keys = false
+      end
     end
 
     it 'returns the default value' do
