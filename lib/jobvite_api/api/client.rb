@@ -14,7 +14,11 @@ module JobviteApi
       options.merge(api: @api_key, sc: @api_token, format: 'json')
     end
 
-    def candidates(id = nil, options = { start: 0, count: 500 })
+    def candidates(id = nil, options = { page: 1, per_page: 500 })
+      page = options.delete(:page)
+      per_page = options.delete(:per_page)
+      options[:start] = (page - 1) * per_page
+      options[:count] = per_page
       options[:candidateId] = id unless id.nil?
       response = get_from_jobvite_api '/candidate', options
       response[:candidates]

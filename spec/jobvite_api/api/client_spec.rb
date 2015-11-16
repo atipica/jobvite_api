@@ -11,7 +11,7 @@ describe JobviteApi::Client do
     context 'given no id' do
       before do
         VCR.use_cassette('client/candidates') do
-          @candidates_response = @client.candidates(nil, start: 0, count: 5)
+          @candidates_response = @client.candidates(nil, page: 1, per_page: 5)
         end
       end
 
