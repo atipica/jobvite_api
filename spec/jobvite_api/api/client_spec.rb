@@ -28,4 +28,19 @@ describe JobviteApi::Client do
       end
     end
   end
+  describe '#total' do
+    before do
+      VCR.use_cassette('client/candidates') do
+        @total_candidates = @client.total
+      end
+    end
+
+    it 'returns a response' do
+      expect(@total_candidates).to_not be_nil
+    end
+
+    it 'returns the number of candidates' do
+      expect(@total_candidates).to eq 238346
+    end
+  end
 end

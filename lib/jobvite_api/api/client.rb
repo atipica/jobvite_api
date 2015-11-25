@@ -24,6 +24,16 @@ module JobviteApi
       response[:candidates]
     end
 
+    def total
+      options = {}
+      page = 1
+      per_page = 5
+      options[:start] = (page - 1) * per_page
+      options[:count] = per_page
+      response = get_from_jobvite_api '/candidate', options
+      response[:total]
+    end
+
     def get_from_jobvite_api(url, options = {})
       response = get_response(url, query: add_authentication_options(options))
       if response.code == 200
