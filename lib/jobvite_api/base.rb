@@ -9,7 +9,7 @@ module JobviteApi
     end
 
     def parse_json(response)
-      MultiJson.load(response.body, symbolize_keys:
+      JSON.parse(response.body, symbolize_names:
         JobviteApi.configuration.symbolize_keys)
     end
   end
