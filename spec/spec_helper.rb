@@ -4,7 +4,6 @@ require 'bundler'
 require 'webmock/rspec'
 require 'vcr'
 require 'httmultiparty'
-require 'multi_json'
 require 'jobvite_api'
 
 require 'coveralls'
